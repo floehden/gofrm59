@@ -1,0 +1,16 @@
+name: gofrm
+
+topology:
+  nodes:
+    ceos1:
+      kind: ceos
+      image: ceos:4.34.0F
+      ports:
+        - 6030:6030
+    ceos2:
+      kind: ceos
+      image: ceos:4.34.0F
+      ports:
+        - 6031:6030
+  links:
+    - endpoints: ["ceos1:eth1","ceos2:eth1"]
