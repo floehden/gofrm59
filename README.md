@@ -3,9 +3,7 @@ Repository for the presentation of the Gophers Meetup in Frankfurt on 10.07.2025
 
 ## Commands on Arista cEOS connected via ssh
 ```sh
-ip routing
-
-ssh admin@1<ip>
+ssh admin@  <ip>
 
 ceos1>en
 ceos1#conf t
@@ -44,7 +42,7 @@ gnmic -a <ip>:<port> -u admin -p admin --insecure set \
 
 ```
 
-Check with thbe following command
+Check with th‚e following command
 ```sh
 gnmic -a <ip>:<port> -u admin -p admin --insecure get \
   --path '/interfaces/interface[name=Ethernet1]/subinterfaces/subinterface[index=0]/ipv4/addresses'
