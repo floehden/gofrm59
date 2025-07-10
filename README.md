@@ -5,7 +5,7 @@ Repository for the presentation of the Gophers Meetup in Frankfurt on 10.07.2025
 ## Creating an Operator with kubebuilder
 
 ### Prerequisites
-* go (version > 1.21)
+* go (version => 1.21)
 * kubebuilder
 * docker (At least I used Docker)
 * kubernetes cluster (kind for example)
