@@ -1,9 +1,77 @@
 # gofrm59
 Repository for the presentation of the Gophers Meetup in Frankfurt on 10.07.2025
 
-## Commands on Arista cEOS connected via ssh
+
+## Creating an Operator with kubebuilder
+
+### Prerequisites
+* go (version > 1.21)
+* kubebuilder
+* docker (At least I used Docker)
+* kubernetes cluster (kind for example)
+
+### Commands
+#### Creation
+
+Creating the operator/project
 ```sh
-ssh admin@  <ip>
+kubebuilder init --domain <domain-name> --repo <git-url>/<>/<operator-name> --skip-go-version-check
+```
+
+Creating the API
+```sh
+kubebuilder create api --group <group-name> --version v1 --kind <operator-name> --resource --controller
+```
+
+#### Testing and provisioning 
+
+Deploying the API to Kubernetes
+```sh
+make install 
+```
+
+Running the operator on your own device
+```sh
+make run
+```
+
+#### Pushing operator to registry
+Login to registry
+```sh
+docker login <registry-domain
+```
+
+```sh
+sudo make docker-build docker-push IMG=<registry-url>/<operator-name>:0.1
+```
+
+#### Deploying operator to kubernetes
+```sh
+make deploy IMG=<registry-url>/<operator-name>:0.1
+```
+
+#### Removing operator
+Removing Controller
+```sh
+make undeploy
+```
+
+Removing API
+```sh
+make uninstall
+```
+
+
+### Troubleshooting
+I came across those two issue:
+* [metadata.annotations: Too long: must have at most 262144 bytes](https://github.com/kubernetes-sigs/kubebuilder/issues/2556)
+* [Panic Related to Garbage Collector When Running Go Program](https://stackoverflow.com/questions/71942328/panic-related-to-garbage-collector-when-running-go-program)
+
+
+## Router commands
+### CLI Commands on Arista cEOS connected via ssh
+```sh
+ssh admin@<ip>
 
 ceos1>en
 ceos1#conf t
@@ -22,7 +90,7 @@ ceos01# write memory
 ```
 
 
-## gnmi
+### gnmi
 
 ```sh
 # Not entirely complete (WIP)
