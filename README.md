@@ -65,7 +65,7 @@ make uninstall
 ### Troubleshooting
 I came across those two issue:
 * [metadata.annotations: Too long: must have at most 262144 bytes](https://github.com/kubernetes-sigs/kubebuilder/issues/2556)
-* [Panic Related to Garbage Collector When Running Go Program](https://stackoverflow.com/questions/71942328/panic-related-to-garbage-collector-when-running-go-program)
+* [Panic Related to Garbage Collector When Running Go Program](https://stackoverflow.com/a/72087773/20241453)
 
 
 ## Router commands
